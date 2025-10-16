@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Validation</title>
+</head>
+<body>
+
+    <h2>Form Validation Example</h2>
+    <form id="exampleForm">
+        <input type="text" placeholder="Enter something" id="formInput" />
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        document.querySelector("#exampleForm").addEventListener("submit", (event) => {
+            let input = document.querySelector("#formInput");
+            if (!input.value) {
+                // If the input is empty, prevent the form from submitting.
+                event.preventDefault();
+                alert("Input cannot be empty!");
+            }
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Interactive Lists</title>
+</head>
+<body>
+
+    <h2>Interactive Lists Example</h2>
+    <p>Click on any list item.</p>
+
+    <ul id="interactiveList">
+        <li>Interactive Item 1</li>
+        <li>Interactive Item 2</li>
+        <li>Interactive Item 3</li>
+    </ul>
+
+    <script>
+        let ul = document.querySelector("#interactiveList");
+
+        // Using event delegation on the parent UL
+        ul.addEventListener("click", (event) => {
+            if (event.target.tagName === "LI") {
+                event.target.style.backgroundColor = "yellow";
+            }
+        });
+    </script>
+
+</body>
+</html>
