@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Event Bubbling Demo</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; }
+        div { padding: 20px; margin: 20px; border: 2px solid; cursor: pointer; }
+        .grandparent { border-color: red; }
+        .parent { border-color: blue; }
+        .child { border-color: green; }
+    </style>
+</head>
+<body>
+
+    <div class="grandparent" id="grandparentDiv">
+        Grandparent
+        <div class="parent" id="parentDiv">
+            Parent
+            <div class="child" id="childDiv">
+                Child
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // This script demonstrates event bubbling.
+        // A click on the child will also trigger the parent's and grandparent's click events.
+        const grandparent = document.getElementById('grandparentDiv');
+        const parent = document.getElementById('parentDiv');
+        const child = document.getElementById('childDiv');
+
+        grandparent.addEventListener('click', function(e) {
+            console.log("Grandparent Clicked");
+        });
+
+        parent.addEventListener('click', function(e) {
+            console.log("Parent Clicked");
+        });
+
+        child.addEventListener('click', function(e) {
+            console.log("Child Clicked");
+        });
+    </script>
+
+</body>
+</html>

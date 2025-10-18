@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Stopping Event Bubbling</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; }
+        div { padding: 20px; margin: 20px; border: 2px solid; cursor: pointer; }
+        .grandparent { border-color: red; }
+        .parent { border-color: blue; }
+        .child { border-color: green; }
+    </style>
+</head>
+<body>
+
+    <div class="grandparent" id="grandparentDiv">
+        Grandparent
+        <div class="parent" id="parentDiv">
+            Parent
+            <div class="child" id="childDiv">
+                Child
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // This script demonstrates how to stop event bubbling.
+        // e.stopPropagation() prevents the event from reaching parent elements.
+        const grandparent = document.getElementById('grandparentDiv');
+        const parent = document.getElementById('parentDiv');
+        const child = document.getElementById('childDiv');
+
+        grandparent.addEventListener('click', function(e) {
+            console.log("Grandparent Clicked");
+        });
+
+        parent.addEventListener('click', function(e) {
+            console.log("Parent Clicked");
+        });
+
+        child.addEventListener('click', function(e) {
+            // This stops the event from bubbling up to the parent and grandparent.
+            e.stopPropagation();
+            console.log("Child Clicked (Bubbling Stopped)");
+        });
+    </script>
+
+</body>
+</html>
